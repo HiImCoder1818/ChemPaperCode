@@ -2,6 +2,7 @@ import numpy as np
 from pyscf import gto, dft, tddft
 
 #"aug-cc-pvdz"
+#"lanl2dz"
 ELEMENT = "Hg"
 BASIS = "lanl2dz"
 ECP = "lanl2dz"
@@ -59,7 +60,7 @@ def run_dft_tddft(element, basis, functional, charge=0, spin=0, ecp=None):
     td.nstates = 30
     td.kernel()
 
-    exc_energies = np.array(td.e) * 27.2114  # Hartree → eV
+    exc_energies = np.array(td.e) * 27.2114
     osc = td.oscillator_strength()
     wavelengths = []
 
@@ -89,6 +90,6 @@ def run_dft_tddft(element, basis, functional, charge=0, spin=0, ecp=None):
 
 
 if __name__ == "__main__":
-    w = run_dft_tddft(ELEMENT, BASIS, FUNCTIONAL, charge=+1, spin=1, ecp=ECP)
+    w = run_dft_tddft(ELEMENT, BASIS, FUNCTIONAL, charge=+3, spin=3, ecp=ECP)
     print(w)
     
