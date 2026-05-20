@@ -84,7 +84,7 @@ for i in range(3):
     ax[i].set_xlim(380, 780)
     ax[i].set_ylim(0, 1)
     ax[i].set_xlabel("Wavelength (nm)")
-    ax[i].set_xlabel("Intensity")
+    ax[i].set_ylabel("Intensity")
     ax[i].set_yticks([])
 
 plt.tight_layout()
